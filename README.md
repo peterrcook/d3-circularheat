@@ -18,6 +18,7 @@ Ideal for displaying cyclic data e.g.
 		.append('svg')
 		.call(chart);
 
+More [examples](http://prcweb.co.uk/lab/circularheat/).
 
 ###Implementation
 
