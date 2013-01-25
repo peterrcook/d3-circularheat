@@ -1,0 +1,10 @@
+/* SVG styling */
+svg {
+	width: 300px;
+	height: 300px;
+}
+
+path {
+	stroke: #777;
+	stroke-width: 0.1px;
+}
