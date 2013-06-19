@@ -30,7 +30,7 @@ The chart can be configured in a number of ways (all optional)
 
 * **margin**: An object specifying the margins e.g. {top: 20, right: 20, bottom: 20, left: 20}
 * **innerRadius**: The radius of the innermost circle
-* **numSegements**: The number of segments in each ring
+* **numSegments**: The number of segments in each ring
 * **segmentHeight**: The height of each ring
 * **domain**: The domain of the data e.g. [0, 1]
 * **range**: The output colour range of the data e.g. ["white", "red"]
