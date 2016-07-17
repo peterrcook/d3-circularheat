@@ -69,18 +69,44 @@ function circularHeatChart() {
                 .classed("segment", true)
                 .attr("transform", "translate(" + parseInt(margin.left + offset) + "," + parseInt(margin.top + offset) + ")");
 
+
             labels.append("def")
+                .selectAll("path")
+                .data(segmentLabels).enter()
                 .append("path")
-                .attr("id", "segment-label-path-"+id)
-                .attr("d", "m0 -" + r + " a" + r + " " + r + " 0 1 1 -1 0");
+                .attr("id", function(d, i) {return "segment-label-path-"+i})
+                .attr("opacity",0)
+                .each(function(d,i) {
+                    if((i)*360/numSegments > 90 && (i)*360/numSegments < 270){
+                        d3.select(this)
+                        .attr("d", "M0 -" + (r + 8) + " a" + (r + 8) + " " + r + " 0 1 0 1 0")
+                        .attr("transform", function(d, j) {return "rotate("+(i*360)/numSegments+")"})
+                    }
+                    else{
+                        d3.select(this)
+                        .attr("d", "M0 -" + r + " a" + r + " " + r + " 0 1 1 -1 0")
+                        .attr("transform", function(d, j) {return "rotate("+i*360/numSegments+")"})                        
+
+                    }
+                });
 
             labels.selectAll("text")
                 .data(segmentLabels).enter()
                 .append("text")
                 .append("textPath")
-                .attr("xlink:href", "#segment-label-path-"+id)
-                .attr("startOffset", function(d, i) {return i * 100 / numSegments + "%";})
-                .text(function(d) {return d;});
+                .attr("xlink:href", function(d, i) {return "#segment-label-path-"+i})
+
+                .each(
+                    function(d,i) {
+                        if((i)*360/numSegments > 90 && (i)*360/numSegments < 270){
+                            d3.select(this)
+                            .style("text-anchor","end") 
+                            .attr("startOffset","100%")
+                        }        
+                    }
+
+                )
+                .text(function(d) {return d;})
         });
 
     }
