@@ -22,18 +22,18 @@ function circularHeatChart() {
                 domain = d3.extent(data, accessor);
                 autoDomain = true;
             }
-            var color = d3.scale.linear().domain(domain).range(range);
+            var color = d3.scaleLinear().domain(domain).range(range);
             if(autoDomain)
                 domain = null;
 
             g.selectAll("path").data(data)
                 .enter().append("path")
-                .attr("d", d3.svg.arc().innerRadius(ir).outerRadius(or).startAngle(sa).endAngle(ea))
+                .attr("d", d3.arc().innerRadius(ir).outerRadius(or).startAngle(sa).endAngle(ea))
                 .attr("fill", function(d) {return color(accessor(d));});
 
 
             // Unique id so that the text path defs are unique - is there a better way to do this?
-            var id = d3.selectAll(".circular-heat")[0].length;
+            var id = d3.selectAll(".circular-heat").nodes.length;
 
             //Radial labels
             var lsa = 0.01; //Label start angle
