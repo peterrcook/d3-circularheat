@@ -1,4 +1,4 @@
-#Circular Heat Chart
+# Circular Heat Chart
 
 A [D3](http://d3js.org) chart for displaying quantative data using segmented concentric rings.
 
@@ -7,7 +7,7 @@ Ideal for displaying cyclic data e.g.
 * a week's worth of hourly data. Each ring represents a day and each segment an hour
 * a year's worth of daily data. Each ring represents a week and each segment a day
 
-###Simple example
+## Simple example
 
 	var data = [1, 2, 3, 4, 2, 3, 4, 5, 3, 4, 5, 6, 4, 5, 6, 7];
 	var chart = circularHeatChart().innerRadius(100).numSegments(4).range(["white", "red"]);
@@ -18,13 +18,13 @@ Ideal for displaying cyclic data e.g.
 		.append('svg')
 		.call(chart);
 
-More [examples](http://prcweb.co.uk/lab/circularheat/).
+More [examples](http://app.peterrcook.com/circular-heat/).
 
-###Implementation
+## Implementation
 
 The implementation follows the [reusable charts](http://bost.ocks.org/mike/chart/) convention proposed by Mike Bostock.
 
-##Configuration
+## Configuration
 
 The chart can be configured in a number of ways (all optional)
 
@@ -36,6 +36,6 @@ The chart can be configured in a number of ways (all optional)
 * **range**: The output colour range of the data e.g. ["white", "red"]
 * **accessor**: An accessor function for e.g. arrays of objects
 
-###About
-This chart was created by [Peter Cook](http://prcweb.co.uk)
-Twitter: [@prcweb](http://twitter.com/prcweb)
+## About
+This chart was created by [Peter Cook](http://peterrcook.com)
+Twitter: [@peter_r_cook](http://twitter.com/peter_r_cook)
